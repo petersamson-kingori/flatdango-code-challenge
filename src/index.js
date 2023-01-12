@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 })
 
 function showMovies(){
-    fetch(' http://localhost:3000/films')
+    fetch('https://my-json-server.typicode.com/petersamson-kingori/flatdango-code-challenge/films')
     .then(resp=>resp.json())
     .then(movies => {
         console.log(movies)
