@@ -1,35 +1,3 @@
-document.addEventListener("DOMContentLoaded",()=>{
-    console.log("Content Loaded bro");
-    showMovies()
-})
-
-function showMovies(){
-    fetch('https://my-json-server.typicode.com/petersamson-kingori/flatdango-code-challenge/films')
-    .then(resp=>resp.json())
-    .then(movies => {
-        const titles = Array.from(movies, movie => movie.title);
-        let films = document.getElementById("films");
-
-        titles.forEach(titles => {
-            imgPoster = poster;
-            const list = document.createElement("li");
-            list.addEventListener("click",showMovieTitle)
-            list.textContent = titles
-            films.appendChild(list)
-            
-        })
-        
-
-    })
-}
-
-let button = document.getElementById('buy-ticket');
-button.addEventListener('click',function(){
-    console.log("button works")
-})
-
-
-
 
 // Your code here
 
@@ -54,14 +22,21 @@ function showMovies(){
         
 
         titles.forEach(titles => {
-            imgPoster = poster;
             const list = document.createElement("li");
-            list.addEventListener("click",showMovieTitle)
+            list.addEventListener("click",showMovieTitle())
             list.textContent = titles
             films.appendChild(list)
             showMovieTitle()
                         
         })
+        imgPoster.forEach(poster =>{
+
+
+        })
+
+        function showMovieTitle(){
+            let posterImg = imgPoster; 
+        }
 
     
 
