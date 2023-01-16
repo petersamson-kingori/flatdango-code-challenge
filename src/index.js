@@ -1,7 +1,6 @@
 
 // Your code here
 
-// Sample codes
 document.addEventListener("DOMContentLoaded",()=>{
     console.log("Content Loaded bro");
     showMovies()
@@ -15,24 +14,44 @@ function showMovies(){
     let poster = document.getElementById("poster");
     poster.src = "https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg";
 
-    let showing = document.getElementById("showing");
+    let menuTitle = document.getElementsByClassName('film item');
+    menuTitle[0].remove
+    
+    
+
     let title = document.getElementById("title");
     let runtime = document.getElementById("runtime");
     let filmInfo = document.getElementById("film-info");
     let showtime = document.getElementById("showtime");
     let ticketNum = document.getElementById("ticket-num");
     let button = document.getElementById('buy-ticket')
-    button.addEventListener('click', function() {
+    
+    button.addEventListener('click', function () {
         let target = document.querySelector('#ticket-num');
         let value = parseInt(target.textContent);
           if (value > 0) {
           value--;
           target.textContent = value;
         }  if (value === 0) {
-          button.disabled = true;
-          button.textContent = "Sold-Out"
+          
+          button.textContent = "Sold-Out";
+        }  if (value === 0){
+            button.addEventListener('click', function () {
+
+            
+                
+            })
+            
         }
       });
+      
+
+      title.textContent = `${films[0].title}`;
+      runtime.textContent = `${films[0].runtime}` + " minutes";
+      filmInfo.textContent = `${films[0].description}`;
+      showtime.textContent = `${films[0].showtime}`;
+      ticketNum.textContent = `${films[0].capacity - films[0].tickets_sold}`;
+      
 
     
 
@@ -53,10 +72,16 @@ function showMovies(){
         let ticketsSold = film.tickets_sold;
         let availableTickets = theaterCapacity - ticketsSold;
 
+        
+        
+
     filmItem.innerHTML = filmTitle;
     filmsList.appendChild(filmItem);
     filmItem.addEventListener("click", function(){
     poster.src = filmPoster;
+    button.textContent = " Buy-Ticket "
+    button.disabled = false
+    
     
 
 
