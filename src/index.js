@@ -7,6 +7,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     showMovies()
 })
 
+function changeImage(){
+    fetch('https://my-json-server.typicode.com/petersamson-kingori/flatdango-code-challenge/films')
+    .then(resp=>resp.json())
+    .then(movies => {   
+    const image = document.getElementById('poster')
+    image.src = movies.poster
+    // console.log('link working')
+}
+)
+}
+
+
 
 
 function showMovies(){
@@ -16,24 +28,20 @@ function showMovies(){
         
         const titles = Array.from(movies, movie => movie.title);    
         const posters = Array.from(movies, movie => movie.poster);
+        console.log(posters)
         let films = document.getElementById("films");
-        
         
 
         titles.forEach(titles => {
             const list = document.createElement("li");
-            list.textContent = titles
+            list.textContent = titles;
+            list.addEventListener('click',changeImage)
             films.appendChild(list) 
-            list.addEventListener("click",()=>{
-                    
-                      const imageLink = movies.poster;
-                      const imgElement = document.getElementById('poster');
-                      imgElement.src = imageLink;
-                    });
-
-                // console.log("Ive been clicked")
-            })    
-        })  
+            list.id = "new-movies"
+        }
+        )
         
     }
-
+    
+    )
+}
