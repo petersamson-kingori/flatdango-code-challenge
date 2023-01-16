@@ -14,39 +14,26 @@ function showMovies(){
     .then(resp=>resp.json())
     .then(movies => {
         
-        const titles = Array.from(movies, movie => movie.title);
-        const images = Array.from(movies, poster => poster.poster);
-        
+        const titles = Array.from(movies, movie => movie.title);    
+        const posters = Array.from(movies, movie => movie.poster);
         let films = document.getElementById("films");
-        let imgPoster = document.getElementById("poster")
+        
         
 
         titles.forEach(titles => {
             const list = document.createElement("li");
-            list.addEventListener("click",showMovieTitle())
             list.textContent = titles
-            films.appendChild(list)
-            showMovieTitle()
-                        
-        })
-        imgPoster.forEach(poster =>{
+            films.appendChild(list) 
+            list.addEventListener("click",()=>{
+                    
+                      const imageLink = movies.poster;
+                      const imgElement = document.getElementById('poster');
+                      imgElement.src = imageLink;
+                    });
 
-
-        })
-
-        function showMovieTitle(){
-            let posterImg = imgPoster; 
-        }
-
-    
-
-
-        // newListItem = document.createElement("li")
-        // newListItem.classList.add("film", "item");
-        // newListItem.innerText = "New Movie Title";
-        // films.appendChild(newListItem);
-                
+                // console.log("Ive been clicked")
+            })    
+        })  
         
-        
-    })
-}
+    }
+
