@@ -15,7 +15,7 @@ function showMovies(){
     poster.src = "https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg";
 
     let menuTitle = document.getElementsByClassName('film item');
-    menuTitle[0].remove
+    menuTitle[0].remove()
     
     
 
